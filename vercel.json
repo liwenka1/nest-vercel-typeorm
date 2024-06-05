@@ -1,28 +1,15 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
-	"buildCommand": "pnpm build",
-	"installCommand": "pnpm install",
-	"outputDirectory": "packages/web/dist",
 	"builds": [
 		{
-			"src": "package.json",
-			"use": "@vercel/static-build",
-			"config": {
-				"zeroConfig": true,
-				"installCommand": "pnpm install",
-				"buildCommand": "pnpm build",
-				"outputDirectory": "packages/web/dist"
-			}
-		},
-		{
-			"src": "packages/server/src/main.ts",
+			"src": "/src/main.ts",
 			"use": "@vercel/node"
 		}
 	],
 	"rewrites": [
 		{
 			"source": "api/(.*)",
-			"destination": "packages/server/src/main.ts"
+			"destination": "/src/main.ts"
 		}
 	]
 }
